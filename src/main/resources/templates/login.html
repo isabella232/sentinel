@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018. Service Prototyping Lab, ZHAW
+  ~    All Rights Reserved.
+  ~
+  ~      Licensed under the Apache License, Version 2.0 (the "License"); you may
+  ~      not use this file except in compliance with the License. You may obtain
+  ~      a copy of the License at
+  ~
+  ~           http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~      Unless required by applicable law or agreed to in writing, software
+  ~      distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  ~      WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  ~      License for the specific language governing permissions and limitations
+  ~      under the License.
+  ~
+  ~
+  ~      Author: Piyush Harsh,
+  ~      URL: piyush-harsh.info
+  ~      Email: piyush.harsh@zhaw.ch
+  -->
+
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>sentinel :: please login</title>
+    <link rel="icon" th:href="@{${basepath} + '/assets/images/favicon.ico'}" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row" style="height:50px;">
+
+        </div>
+        <div class="row justify-content-center">
+            <h2>Sentinel :: Login</h2>
+        </div>
+
+        <div class="row" style="height:50px;"></div>
+
+        <div class="row justify-content-center" th:if="${loginmsg != null}">
+            <div class="col col-sm-4 alert alert-primary" role="alert" style="text-align: center">
+                <span th:if="${loginmsg != null}" th:text="${loginmsg}">(c) 2018 SPLab - ZHAW</span>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col col-sm-4">
+                <form method="post" th:action="@{${basepath} + '/login'}">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="username" id="username">
+                        <small id="usernamehelp" class="form-text text-muted">Enter your sentinel username.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password">
+                    </div>
+                    <button type="submit" class="btn btn-raised btn-primary" style="background-color:#ffac2f">Login</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
